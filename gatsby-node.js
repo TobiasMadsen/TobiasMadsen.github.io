@@ -19,7 +19,9 @@ exports.createPages = ({ graphql, actions }) => {
                     slug
                   }
                   frontmatter {
+                    subtitle
                     title
+                    date
                   }
                 }
               }
@@ -38,9 +40,11 @@ exports.createPages = ({ graphql, actions }) => {
         _.each(posts, (post, index) => {
           const previous = index === posts.length - 1 ? null : posts[index + 1].node;
           const next = index === 0 ? null : posts[index - 1].node;
+          const date = new Date(post.node.frontmatter.date)
+          const path = `${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}${post.node.fields.slug}`
 
           createPage({
-            path: post.node.fields.slug,
+            path: path,
             component: blogPost,
             context: {
               slug: post.node.fields.slug,

@@ -1,9 +1,9 @@
 module.exports = {
   siteMetadata: {
-    title: 'Gatsby Starter Blog',
-    author: 'Kyle Mathews',
-    description: 'A starter blog demonstrating what Gatsby can do.',
-    siteUrl: 'https://gatsbyjs.github.io/gatsby-starter-blog/',
+    title: 'TobiasMadsen.com',
+    author: 'Tobias Madsen',
+    description: 'A blog about statistics, software development and mathematics',
+    siteUrl: 'https://tobiasmadsen.com',
   },
   pathPrefix: '/gatsby-starter-blog',
   plugins: [
@@ -30,6 +30,7 @@ module.exports = {
               wrapperStyle: `margin-bottom: 1.0725rem`,
             },
           },
+          `gatsby-remark-katex`,
           'gatsby-remark-prismjs',
           'gatsby-remark-copy-linked-files',
           'gatsby-remark-smartypants',
@@ -41,7 +42,7 @@ module.exports = {
     {
       resolve: `gatsby-plugin-google-analytics`,
       options: {
-        //trackingId: `ADD YOUR TRACKING ID HERE`,
+        trackingId: 'UA-60770837-1',
       },
     },
     `gatsby-plugin-feed`,
@@ -65,5 +66,6 @@ module.exports = {
         pathToConfigModule: 'src/utils/typography',
       },
     },
+    `gatsby-plugin-jss`,
   ],
 }
