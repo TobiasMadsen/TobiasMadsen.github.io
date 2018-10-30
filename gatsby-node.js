@@ -41,12 +41,13 @@ exports.createPages = ({ graphql, actions }) => {
           const previous = index === posts.length - 1 ? null : posts[index + 1].node;
           const next = index === 0 ? null : posts[index - 1].node;
           const date = new Date(post.node.frontmatter.date)
-          const path = `${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}${post.node.fields.slug}`
+          const path = `${post.node.frontmatter.date}${post.node.fields.slug}`
 
           createPage({
             path: path,
             component: blogPost,
             context: {
+              date: post.node.frontmatter.date,
               slug: post.node.fields.slug,
               previous,
               next,

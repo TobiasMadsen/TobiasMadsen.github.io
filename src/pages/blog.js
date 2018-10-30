@@ -59,7 +59,7 @@ class Blog extends React.Component {
           {posts.map(({ node }) => {
             const title = get(node, 'frontmatter.title') || node.fields.slug
             const date = new Date(get(node, 'frontmatter.date'))
-            const link = `${date.getFullYear()}/${date.getMonth()+1}/${date.getDate()}${node.fields.slug}`
+            const link = `${node.frontmatter.date}${node.fields.slug}`
             const excerpt = node.excerpt
             console.log(node.frontmatter.image? node.frontmatter.image.childImageSharp.fluid.src: "no image")
             return (

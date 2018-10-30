@@ -1,6 +1,6 @@
 import React from 'react'
 import Helmet from 'react-helmet'
-import { graphql } from 'gatsby'
+import { graphql, Link } from 'gatsby'
 import get from 'lodash/get'
 import injectSheet from 'react-jss'
 import { DiscussionEmbed } from "disqus-react"
@@ -11,6 +11,7 @@ import 'typeface-playfair-display'
 import 'typeface-montserrat'
 import 'typeface-cormorant-garamond'
 import "prismjs/themes/prism.css"
+import "katex/dist/katex.min.css"
 import SimpleLayout from "../components/SimpleLayout/SimpleLayout"
 import profilePic from '../pages/profil.png'
 
@@ -79,6 +80,15 @@ const styles = {
       color: "#666",
       textAlign: "center",
     }
+  },
+  nextPrevPost: {
+    font: '400 20px cormorant garamond, sans-serif',
+    marginTop: '20px',
+    display: 'flex',
+    flexWrap: 'wrap',
+    justifyContent: 'space-between',
+    listStyle: 'none',
+    padding: 0,
   }
 }
 
@@ -89,7 +99,7 @@ class BlogPostTemplate extends React.Component {
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     const siteDescription = post.excerpt
     const { previous, next } = this.props.pageContext
-
+    console.log(previous)
     const disqusShortname = "tobiasmadsen";
     const disqusConfig = {
       identifier: post.frontmatter.title,
@@ -123,38 +133,29 @@ class BlogPostTemplate extends React.Component {
             </div>
             <div className={classes.rightSideContent} />
           </div>
+
+          <ul className={classes.nextPrevPost}>
+            {previous && (
+            <li>
+            <Link to={`${previous.frontmatter.date}${previous.fields.slug}`} rel="prev">
+            ← {previous.frontmatter.title}
+            </Link>
+            </li>
+            )}
+            {next && (
+            <li>
+            <Link to={`${next.frontmatter.date}${next.fields.slug}`} rel="next">
+            {next.frontmatter.title} →
+            </Link>
+            </li>
+            )}
+          </ul>
           <hr
             style={{
               marginTop: rhythm(1),
               marginBottom: rhythm(1),
             }}
           />
-
-          {/*<ul*/}
-          {/*style={{*/}
-          {/*display: 'flex',*/}
-          {/*flexWrap: 'wrap',*/}
-          {/*justifyContent: 'space-between',*/}
-          {/*listStyle: 'none',*/}
-          {/*padding: 0,*/}
-          {/*}}*/}
-          {/*>*/}
-          {/*{previous && (*/}
-          {/*<li>*/}
-          {/*<Link to={previous.fields.slug} rel="prev">*/}
-          {/*← {previous.frontmatter.title}*/}
-          {/*</Link>*/}
-          {/*</li>*/}
-          {/*)}*/}
-
-          {/*{next && (*/}
-          {/*<li>*/}
-          {/*<Link to={next.fields.slug} rel="next">*/}
-          {/*{next.frontmatter.title} →*/}
-          {/*</Link>*/}
-          {/*</li>*/}
-          {/*)}*/}
-          {/*</ul>*/}
           <DiscussionEmbed shortname={disqusShortname} config={disqusConfig} />
         </div>
       </SimpleLayout>
