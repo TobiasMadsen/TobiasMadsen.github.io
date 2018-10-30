@@ -1,0 +1,396 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <title>dgRaph @ useR!</title>
+  <meta name="description" content="">
+  <meta name="author" content="Tobias Madsen">
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="stylesheet" href="libraries/frameworks/revealjs/css/reveal.min.css">
+  <link rel="stylesheet" href="libraries/frameworks/revealjs/css/theme/Solarized.css" id="theme">
+  <link rel="stylesheet" href="libraries/highlighters/highlight.js/css/zenburn.css" id="theme">
+  <!--[if lt IE 9]>
+  <script src="lib/js/html5shiv.js"></script>
+  <![endif]-->  
+</head>
+<body>
+  <div class="reveal">
+    <div class="slides">
+      <section class='' data-state='' id='slide-1'>
+  
+  <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({ TeX: { extensions: ["color.js"] }});
+</script>
+
+<h1>dgRaph at @ UseR!</h1>
+
+<h3>Tobias Madsen</h3>
+
+<p><img src="fig/AU_logo.png"  alt="some_text" width='50%' style="background:none; border:none; box-shadow:none;"></p>
+
+</section>
+<section class='' data-state='' id='slide-2'>
+  
+  <!-- motivating example -->
+
+<p><img src="fig/giving_a_user_talk.png"  alt="some_text" width='50%' margin='100px 15% 0% 15%' style="background:none; border:none; box-shadow:2px;"></p>
+
+<p><img src="fig/motivating_problem.png"  alt="some_text" width='50%' margin='100px 15% 0% 15%' style="background:none; border:none; box-shadow:2px;"></p>
+
+</section>
+<section class='' data-state='' id='slide-3'>
+  <h3>DNA Motifs</h3>
+  <p><img src="fig/pwm.svg"  alt="some_text" width='50%' margin='100px 15% 0% 15%' style="background:none; border:none; box-shadow:none;"></p>
+
+<pre><code>##   Pos1 Pos2 Pos3 Pos4  Pos5
+## A  0.4  0.1 0.60  0.4 0.300
+## C  0.1  0.7 0.30  0.1 0.650
+## G  0.1  0.1 0.05  0.1 0.025
+## T  0.4  0.1 0.05  0.4 0.025
+</code></pre>
+
+</section>
+<section class='' data-state='' id='slide-4'>
+  <h3>DNA Motifs</h3>
+  <p>Score of Motif \(X=TCCAA\):</p>
+
+<p>\[
+S = \log\left(\frac{P_{M}(X)}{P_{bg}(X)}\right) = \color{red}2.33\color{black}
+\]</p>
+
+<p>How often will such a score occur by chance?</p>
+
+</section>
+<section class='' data-state='' id='slide-5'>
+  <h3>Multi-Motifs</h3>
+  <p><img src="fig/motifdata.svg"  alt="some_text" width='80%' margin='100px 15% 0% 15%' style="background:none; border:none; box-shadow:none;"></p>
+
+</section>
+<section class='' data-state='' id='slide-6'>
+  
+  <!-- background on factor graphs -->
+
+<h3>Factor Graphs</h3>
+
+<p><img src="fig/mixture_fac.svg"  alt="some_text" width='50%' margin='100px 15% 0% 15%' style="background:none; border:none; box-shadow:none;"></p>
+
+<p>\[
+p(x) = f_a(x_1)f_b(x_1, x_2)
+\]</p>
+
+</section>
+<section class='' data-state='' id='slide-7'>
+  <h3>Factor Graphs</h3>
+  <p><img src="fig/mixture_fac.svg"  alt="some_text" width='50%' margin='100px 15% 0% 15%' style="background:none; border:none; box-shadow:none;"></p>
+
+<p>\[
+p(x) = p(x_1)p(x_2\mid x_1)
+\]</p>
+
+</section>
+<section class='' data-state='' id='slide-8'>
+  <h3>Motif Example</h3>
+  <p><img src="fig/motif.svg"  alt="some_text" width='80%' margin='100px 15% 0% 15%' style="background:none; border:none; box-shadow:none;"></p>
+
+</section>
+<section class='' data-state='' id='slide-9'>
+  <h3>Motif Example</h3>
+  <pre><code class="r">library(dgRaph)
+varDim &lt;- c(rep(4,5),rep(100,5))
+facPot &lt;- list(multinomialPotential(dim = c(1, 4)), # Prior
+               multinomialPotential(dim = c(4, 4)), # Transition
+               betaPotential(dim = c(4, 100))) # Emission
+facNbs &lt;- list(1, 
+               c(1,2), c(2,3), c(3,4), c(4,5),
+               c(1,6), c(2,7), c(3,8), c(4,9), c(5,10))
+potMap &lt;- c(1,2,2,2,2,3,3,3,3,3)
+
+bgDfg &lt;- dfg(varDim, facPot, facNbs, potMap,
+             varNames = c(&quot;X1&quot;,&quot;X2&quot;,&quot;X3&quot;,&quot;X4&quot;,&quot;X5&quot;,&quot;Y1&quot;,&quot;Y2&quot;,&quot;Y3&quot;,&quot;Y4&quot;,&quot;Y5&quot;))
+</code></pre>
+
+</section>
+<section class='' data-state='' id='slide-10'>
+  
+  <pre><code class="r">plot(bgDfg, layout = layout.reingold.tilford)
+</code></pre>
+
+<p><img src="assets/fig/motifbgPlot-1.png" alt="plot of chunk motifbgPlot"> </p>
+
+</section>
+<section class='' data-state='' id='slide-11'>
+  <h3>Motif Example</h3>
+  <pre><code class="r">df &lt;- read.delim(&quot;df.tab&quot;)
+head(df)
+</code></pre>
+
+<pre><code>##   X1 X2 X3 X4 X5 Y1 Y2 Y3 Y4 Y5
+## 1  1  1  4  4  1 23 41 11 28 20
+## 2  2  3  3  2  2 71 83 46 78 61
+## 3  2  2  2  1  1 72 86 52 11 31
+## 4  2  2  3  2  2 78 61 75 68 76
+## 5  4  4  3 NA  2 69 26 88 69 88
+## 6  2 NA  1  1 NA 59 17 11 19 70
+</code></pre>
+
+</section>
+<section class='' data-state='' id='slide-12'>
+  <h3>Motif Example</h3>
+  <pre><code class="r">bgDfg &lt;- train(data = df, dfg = bgDfg, 
+               optim = c(&#39;row&#39;, &#39;row&#39;, &#39;beta&#39;), verbose = T)
+</code></pre>
+
+<p><img src="assets/fig/learning1-1.png" alt="plot of chunk learning1"> </p>
+
+</section>
+<section class='' data-state='' id='slide-13'>
+  
+  <pre><code class="r">bgDfg &lt;- train(data = df, dfg = bgDfg, 
+               optim = c(&#39;row&#39;, &#39;row&#39;, &#39;beta&#39;), verbose = T)
+</code></pre>
+
+<pre><code>## Training...
+## Iterations:..
+## EM-algorithm converged after 2 iterations
+## Likelihood: -25431.79
+</code></pre>
+
+<pre><code>## 1th potential
+## Row normalized multinomial potential
+##  1   2   3   4
+## 1    0.26983 0.23801 0.24829 0.24386
+## 
+## 2th potential
+## Row normalized multinomial potential
+##  1   2   3   4
+## 1    0.41565 0.07958 0.12378 0.38099
+## 2    0.13434 0.37403 0.39234 0.099297
+## 3    0.11646 0.41907 0.38714 0.077333
+## 4    0.39591 0.095157    0.1045  0.40443
+## 
+## 3th potential
+## beta-potential update
+## 1    alpha:  2.0295  beta:   5.1511
+## 2    alpha:  5.4467  beta:   2.126
+## 3    alpha:  5.0221  beta:   1.8588
+## 4    alpha:  1.841   beta:   4.241
+</code></pre>
+
+</section>
+<section class='' data-state='' id='slide-14'>
+  <h3>Motif Model</h3>
+  <p>Train a motif model as well</p>
+
+<pre><code class="r">motifDfg
+</code></pre>
+
+<p><img src="fig/cooking.jpg"  alt="some_text" width='50%' margin='100px 15% 0% 15%' style="background:none; border:none; box-shadow:2px;"></p>
+
+</section>
+<section class='' data-state='' id='slide-15'>
+  <h3>Significance evaluation</h3>
+  <p>How often do we encounter a certain score by chance?</p>
+
+</section>
+<section class='' data-state='' id='slide-16'>
+  <h3>Importance Sampling</h3>
+  <p>Use a class of distributions parameterized by \(\alpha\):</p>
+
+<p>\[
+P^{IS}(X) = P_{M_1}(X)^{(1-\alpha)}P_{M_2}(X)^{\alpha}
+\]</p>
+
+<p><img src="assets/fig/isscheme-1.png" alt="plot of chunk isscheme"> </p>
+
+</section>
+<section class='' data-state='' id='slide-17'>
+  
+  <pre><code class="r">x &lt;- seq(-6,4,0.01)
+dfis &lt;- tailIS(x, n=10000, alpha=1, dfg1 = bgDfg, dfg2 = motifDfg)
+head(dfis)
+</code></pre>
+
+<pre><code>##       x         p       low high    p_lower alpha
+## 1 -6.00 0.9364139 0.7674401    1 0.06358606     1
+## 2 -5.99 0.9364139 0.7674401    1 0.06358606     1
+## 3 -5.98 0.9364139 0.7674401    1 0.06358606     1
+## 4 -5.97 0.9364139 0.7674401    1 0.06358606     1
+## 5 -5.96 0.8975813 0.7466306    1 0.10241871     1
+## 6 -5.95 0.8975813 0.7466306    1 0.10241871     1
+</code></pre>
+
+</section>
+<section class='' data-state='' id='slide-18'>
+  
+  <p><img src="assets/fig/importancePlot-1.png" alt="plot of chunk importancePlot"> </p>
+
+</section>
+<section class='' data-state='' id='slide-19'>
+  
+  <p><hgroup></p>
+
+<h3>Saddle point Approximation</h3>
+
+<p></hgroup>
+<article>  </p>
+
+<div class='left' style='float:left;width:30%; text-align: left;'>
+<img src="fig/the_scream.jpg"  alt="some_text" width='100%' margin='100px 15% 0% 15%' style="background:none; border:none; box-shadow:2px;">
+</div>    
+
+<div class='right' style='float:right;width:68%; text-align: left;'>
+$$
+\tiny
+\varphi(\theta) = \mathbb{E} \left[ e^{\theta S(X)}\right] = \sum_{\mathcal{X}}\prod_{\mathcal{A}}f_a(x_a)e^{\theta g_a(x_a)}
+$$
+
+$$
+\tiny
+\frac{\partial}{\partial\theta}\varphi(\theta) = \sum_{\mathcal{X}} \sum_{\mathcal{A}}g_a(x_a)\prod_{\mathcal{A}}f_a(x_a)e^{\theta g_a(x_a)}
+$$
+
+$$
+\tiny
+\kappa(\Theta) = \log(\varphi(\Theta))
+$$
+
+$$
+\tiny
+\kappa\prime(\Theta(s)) = \frac{\phi\prime(\Theta(s))}{\phi(\Theta(s))} = s
+$$
+
+$$
+\tiny
+\lambda = \Theta(s)\sqrt{\kappa\prime\prime(\Theta(s))}
+$$
+
+$$
+\tiny
+P(S > s) \approx \varphi(\Theta(s))\exp(\frac{\lambda^2}{2})\left[ 1 - \Phi(\lambda)\right]
+$$
+
+</div>
+
+<p></article></p>
+
+</section>
+<section class='' data-state='' id='slide-20'>
+  <h3>Saddlepoint Approximation</h3>
+  <pre><code class="r">x &lt;- seq(-6,4,0.01)
+dfSaddle &lt;- tailSaddle(x, dfg1 = bgDfg, dfg2 = motifDfg)
+head(dfis)
+</code></pre>
+
+<pre><code>##       x         p       low high    p_lower alpha
+## 1 -6.00 0.9364139 0.7674401    1 0.06358606     1
+## 2 -5.99 0.9364139 0.7674401    1 0.06358606     1
+## 3 -5.98 0.9364139 0.7674401    1 0.06358606     1
+## 4 -5.97 0.9364139 0.7674401    1 0.06358606     1
+## 5 -5.96 0.8975813 0.7466306    1 0.10241871     1
+## 6 -5.95 0.8975813 0.7466306    1 0.10241871     1
+</code></pre>
+
+</section>
+<section class='' data-state='' id='slide-21'>
+  <h3>Saddlepoint Approximation</h3>
+  <p><img src="assets/fig/saddlePlot-1.png" alt="plot of chunk saddlePlot"> </p>
+
+</section>
+<section class='' data-state='' id='slide-22'>
+  <h3>Comparison</h3>
+  <p><img src="assets/fig/comparison-1.png" alt="plot of chunk comparison"> </p>
+
+</section>
+<section class='' data-state='' id='slide-23'>
+  <h3>dgRaph summary</h3>
+  <ul>
+<li>Factor Graphs</li>
+<li>Discrete and discretized continuous variables
+
+<ul>
+<li>Normal distribution</li>
+<li>Beta distribution</li>
+<li>Custom optimization</li>
+</ul></li>
+<li>EM-training</li>
+<li>Standard Algorithms
+
+<ul>
+<li>Likelihood, mps, marginals...</li>
+</ul></li>
+<li>Significance evaluation</li>
+<li>Fast C++ backend</li>
+</ul>
+
+</section>
+<section class='' data-state='' id='slide-24'>
+  <h2>Acknowledgements</h2>
+  <p><img src="fig/finish.jpg"  alt="some_text" width='40%' margin='100px 15% 0% 15%' style="background:none; border:none; box-shadow:none;"></p>
+
+<h3>Jakob Skou Pedersen, Jens Ledet,</h3>
+
+<h3>Asger Hobolth, Michal Switnicki</h3>
+
+</section>
+<section class='' data-state='' id='slide-25'>
+  <h3>Website</h3>
+  <p><a href="https://tobiasmadsen.github.io/dgRaph">tobiasmadsen.github.io/dgRaph</a></p>
+
+<hr style="height:3px; visibility:hidden;" />
+
+<h3>Github</h3>
+
+<p><a href="https://github.com/TobiasMadsen/dgRaph">github.com/TobiasMadsen/dgRaph</a></p>
+
+</section>
+    </div>
+  </div>
+</body>
+  <script src="libraries/frameworks/revealjs/lib/js/head.min.js"></script>
+  <script src="libraries/frameworks/revealjs/js/reveal.min.js"></script>
+  <script>
+  // Full list of configuration options available here:
+  // https://github.com/hakimel/reveal.js#configuration
+  Reveal.initialize({
+    controls: true,
+    progress: true,
+    history: true,
+    center: true,
+    theme: Reveal.getQueryHash().theme || 'Solarized', 
+    transition: Reveal.getQueryHash().transition || 'none', 
+    dependencies: [
+    // Cross-browser shim that fully implements classList -
+    // https://github.com/eligrey/classList.js/
+      { src: 'libraries/frameworks/revealjs/lib/js/classList.js', condition: function() { return !document.body.classList;}},
+      // Zoom in and out with Alt+click
+      { src: 'libraries/frameworks/revealjs/plugin/zoom-js/zoom.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Speaker notes
+      { src: 'libraries/frameworks/revealjs/plugin/notes/notes.js', async: true, condition: function() { return !!document.body.classList; } },
+      // Remote control your reveal.js presentation using a touch device
+      //{ src: 'libraries/frameworks/revealjs/plugin/remotes/remotes.js', async: true, condition: function() { return !!document.body.classList; } }
+      ]
+  });
+  </script>  <!-- MathJax: Fall back to local if CDN offline but local image fonts are not supported (saves >100MB) -->
+<script type="text/x-mathjax-config">
+  MathJax.Hub.Config({
+    tex2jax: {
+      inlineMath: [['$','$'], ['\\(','\\)']],
+      processEscapes: true
+    }
+  });
+</script>
+<script type="text/javascript" src="http://cdn.mathjax.org/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+<!-- <script src="https://c328740.ssl.cf1.rackcdn.com/mathjax/2.0-latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML">
+</script> -->
+<script>window.MathJax || document.write('<script type="text/x-mathjax-config">MathJax.Hub.Config({"HTML-CSS":{imageFont:null}});<\/script><script src="libraries/widgets/mathjax/MathJax.js?config=TeX-AMS-MML_HTMLorMML"><\/script>')
+</script>
+<!-- LOAD HIGHLIGHTER JS FILES -->
+<script src="libraries/highlighters/highlight.js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!-- DONE LOADING HIGHLIGHTER JS FILES -->
+ 
+
+</html>
