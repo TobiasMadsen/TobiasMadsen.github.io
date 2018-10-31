@@ -98,11 +98,16 @@ class BlogPostTemplate extends React.Component {
     const post = this.props.data.markdownRemark
     const siteTitle = get(this.props, 'data.site.siteMetadata.title')
     const siteDescription = post.excerpt
-    const { previous, next } = this.props.pageContext
+    let previous = null
+    let next = null
+    if (this.props.pageContext) {
+      previous = this.props.pageContext.previous
+      next = this.props.pageContext.next
+    }
+
     console.log(previous)
     const disqusShortname = "tobiasmadsen";
     const disqusConfig = {
-      identifier: post.frontmatter.title,
       title: post.frontmatter.title,
     };
 

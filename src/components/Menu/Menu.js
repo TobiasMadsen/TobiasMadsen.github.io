@@ -41,9 +41,6 @@ class Menu extends Component {
           <Link to={'/blog'} className={classes.link}>
             BLOG
           </Link>
-          <Link to={'/contact'} className={classes.link}>
-            CONTACT
-          </Link>
         </div>
         <hr className={classes.horizontalLine} />
       </div>
