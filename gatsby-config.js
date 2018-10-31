@@ -5,7 +5,6 @@ module.exports = {
     description: 'A blog about statistics, software development and mathematics',
     siteUrl: 'https://tobiasmadsen.com',
   },
-  pathPrefix: '/gatsby-starter-blog',
   plugins: [
     {
       resolve: `gatsby-source-filesystem`,
@@ -66,6 +65,5 @@ module.exports = {
         pathToConfigModule: 'src/utils/typography',
       },
     },
-    `gatsby-plugin-jss`,
   ],
 }
