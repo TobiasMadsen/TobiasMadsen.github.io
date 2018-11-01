@@ -25,12 +25,13 @@ const styles = {
     font: '200 22px montserrat, sans-serif'
   },
   content: {
-    flex: '7 1',
-    font: '400 1.4em cormorant garamond, sans-serif',
+    width: '70%',
+    font: '400 20px cormorant garamond, sans-serif',
     "& .katex": {
       fontSize: '0.85em !important',
     },
     "& .katex-display": {
+      width: '100%',
       margin: '0.5em 0',
     },
     "& p": {
@@ -41,14 +42,10 @@ const styles = {
     display: 'flex'
   },
   leftSideContent: {
-    flex: '1.5',
-    //display: 'flex',
-    //justifyContent: 'center',
-    //width: '15%',
+    width: '15%',
   },
   rightSideContent: {
-    flex: '1.5',
-    //width: '15%',
+    width: '15%',
   },
   '@media (max-width: 1024px)': {
     leftSideContent: {
