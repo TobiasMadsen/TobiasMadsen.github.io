@@ -18,7 +18,7 @@ const styles = {
   container: {
     columnCount: 2,
     columnGap: "3%",
-    columnWidth: "30%"
+    columnWidth: "400px"
   },
   blogPostCard: {
     width: "100%",

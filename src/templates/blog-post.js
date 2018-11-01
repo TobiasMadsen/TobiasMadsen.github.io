@@ -18,15 +18,15 @@ import profilePic from '../pages/profil.png'
 const styles = {
   title: {
     margin: '2.0rem, 2.0rem',
-    font: '200 80px playfair display,helvetica,arial',
+    font: '200 5vw playfair display,helvetica,arial',
   },
   subtitle: {
     margin: '2.0rem, 2.0rem',
     font: '200 22px montserrat, sans-serif'
   },
   content: {
-    width: '70%',
-    font: '400 20px cormorant garamond, sans-serif',
+    flex: '7 1',
+    font: '400 1.4em cormorant garamond, sans-serif',
     "& .katex": {
       fontSize: '0.85em !important',
     },
@@ -41,12 +41,22 @@ const styles = {
     display: 'flex'
   },
   leftSideContent: {
+    flex: '1.5',
     //display: 'flex',
     //justifyContent: 'center',
-    width: '15%',
+    //width: '15%',
   },
   rightSideContent: {
-    width: '15%',
+    flex: '1.5',
+    //width: '15%',
+  },
+  '@media (max-width: 1024px)': {
+    leftSideContent: {
+      display: "none",
+    },
+    rightSideContent: {
+      display: "none",
+    }
   },
   postContainer: {
     "& h1" : {
@@ -82,7 +92,7 @@ const styles = {
     }
   },
   nextPrevPost: {
-    font: '400 20px cormorant garamond, sans-serif',
+    font: '400 1.4em cormorant garamond, sans-serif',
     marginTop: '20px',
     display: 'flex',
     flexWrap: 'wrap',
@@ -185,6 +195,7 @@ export const pageQuery = graphql`
       html
       frontmatter {
         title
+        subtitle
       }
     }
   }
