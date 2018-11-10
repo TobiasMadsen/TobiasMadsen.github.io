@@ -18,7 +18,7 @@ import profilePic from '../pages/profil.png'
 const styles = {
   title: {
     margin: '2.0rem, 2.0rem',
-    font: '200 5vw playfair display,helvetica,arial',
+    font: '200 85px playfair display,helvetica,arial',
   },
   subtitle: {
     margin: '2.0rem, 2.0rem',
@@ -48,11 +48,17 @@ const styles = {
     width: '15%',
   },
   '@media (max-width: 1024px)': {
+    title: {
+      font: '200 8vw playfair display,helvetica,arial',
+    },
     leftSideContent: {
       display: "none",
     },
     rightSideContent: {
       display: "none",
+    },
+    content: {
+      width: '100%',
     }
   },
   postContainer: {
