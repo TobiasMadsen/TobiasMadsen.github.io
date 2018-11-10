@@ -1,10 +1,10 @@
 ---
 layout: post
 title: Winning the School Lottery
-subtitle: The Danish Ministry of Education has now paid out bonuses to the schools participating in the school initiative. They claim that 400 students were improved as a result. This number does however not hold up. 
+subtitle: The Danish Ministry of Education has now paid out bonuses to the schools participating in the school initiative. They claim that 400 students were improved as a result. However, this number does not hold up. 
 author: "Tobias Madsen"
 tags: [statistics, politics]
-date: "2018/11/01"
+date: "2018/11/09"
 image: "./detektor.jpg"
 ---
 
