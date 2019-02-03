@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TobiasMadsen.com]]></title><description><![CDATA[A blog about statistics, software development and mathematics]]></description><link>https://tobiasmadsen.com</link><generator>RSS for Node</generator><lastBuildDate>Sat, 10 Nov 2018 09:16:08 GMT</lastBuildDate><item><title><![CDATA[Winning the School Lottery]]></title><description><![CDATA[In a previous  post  I dived into the Danish Ministry of Educations 
+<?xml version="1.0" encoding="UTF-8"?><rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0"><channel><title><![CDATA[TobiasMadsen.com]]></title><description><![CDATA[A blog about statistics, software development and mathematics]]></description><link>https://tobiasmadsen.com</link><generator>RSS for Node</generator><lastBuildDate>Sun, 03 Feb 2019 13:09:20 GMT</lastBuildDate><item><title><![CDATA[Winning the School Lottery]]></title><description><![CDATA[In a previous  post  I dived into the Danish Ministry of Educations 
 school initiative to lift schools having a large amount of students…]]></description><link>https://tobiasmadsen.com/winning-the-school-lottery/</link><guid isPermaLink="false">https://tobiasmadsen.com/winning-the-school-lottery/</guid><pubDate>Thu, 08 Nov 2018 23:00:00 GMT</pubDate><content:encoded>&lt;p&gt;In a previous &lt;a href=&quot;/2018/08/11/lottery-tickets-to-danish-schools/&quot;&gt;post&lt;/a&gt; I dived into the Danish Ministry of Educations
 school initiative to lift schools having a large amount of students with poor academic performance. The point made in
 the post was that the evaluation of the schools relied on so little data, that the payouts would be a lottery. A couple
@@ -876,7 +876,7 @@ We also need a prior for &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quo
 &lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/5846543219e0228b1c99e93c2109692c/58f8a/p-value-posterior.png&quot;
+    href=&quot;/static/5846543219e0228b1c99e93c2109692c/b39e8/p-value-posterior.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -895,13 +895,13 @@ We also need a prior for &lt;span class=&quot;katex&quot;&gt;&lt;span class=&quo
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
         alt=&quot;plot of chunk unnamed-chunk-3&quot;
         title=&quot;&quot;
-        src=&quot;/static/5846543219e0228b1c99e93c2109692c/fb8a0/p-value-posterior.png&quot;
-        srcset=&quot;/static/5846543219e0228b1c99e93c2109692c/1a291/p-value-posterior.png 148w,
-/static/5846543219e0228b1c99e93c2109692c/2bc4a/p-value-posterior.png 295w,
-/static/5846543219e0228b1c99e93c2109692c/fb8a0/p-value-posterior.png 590w,
-/static/5846543219e0228b1c99e93c2109692c/526de/p-value-posterior.png 885w,
-/static/5846543219e0228b1c99e93c2109692c/fa2eb/p-value-posterior.png 1180w,
-/static/5846543219e0228b1c99e93c2109692c/58f8a/p-value-posterior.png 1344w&quot;
+        src=&quot;/static/5846543219e0228b1c99e93c2109692c/40fad/p-value-posterior.png&quot;
+        srcset=&quot;/static/5846543219e0228b1c99e93c2109692c/707e9/p-value-posterior.png 148w,
+/static/5846543219e0228b1c99e93c2109692c/649e0/p-value-posterior.png 295w,
+/static/5846543219e0228b1c99e93c2109692c/40fad/p-value-posterior.png 590w,
+/static/5846543219e0228b1c99e93c2109692c/b3fef/p-value-posterior.png 885w,
+/static/5846543219e0228b1c99e93c2109692c/301c0/p-value-posterior.png 1180w,
+/static/5846543219e0228b1c99e93c2109692c/b39e8/p-value-posterior.png 1344w&quot;
         sizes=&quot;(max-width: 590px) 100vw, 590px&quot;
       /&gt;
     &lt;/span&gt;
@@ -917,8 +917,7 @@ Here I will show how one can use the Reverse-Mode Automatic Differentiation Libr
 &lt;h4&gt;Setting Up&lt;/h4&gt;
 &lt;p&gt;The hardest part is making sure that dependencies are resolved during compilation.
 The relevant headers are in the &lt;code class=&quot;language-text&quot;&gt;Rcpp&lt;/code&gt;, &lt;code class=&quot;language-text&quot;&gt;RcppEigen&lt;/code&gt; and &lt;code class=&quot;language-text&quot;&gt;StanHeaders&lt;/code&gt; packages, so first these packages must be installed:&lt;/p&gt;
-&lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;r&quot;&gt;&lt;pre style=&quot;counter-reset: linenumber 0&quot; class=&quot;language-r line-numbers&quot;&gt;&lt;code class=&quot;language-r&quot;&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;install.packages&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;c&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Rcpp&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;RcppEigen&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;StanHeaders&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;
-&lt;/span&gt;&lt;/code&gt;&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot; style=&quot;white-space: normal; width: auto; left: 0;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;
+&lt;div class=&quot;gatsby-highlight has-highlighted-lines&quot; data-language=&quot;r&quot;&gt;&lt;pre style=&quot;counter-reset: linenumber 0&quot; class=&quot;language-r line-numbers&quot;&gt;&lt;code class=&quot;language-r&quot;&gt;&lt;span class=&quot;gatsby-highlight-code-line&quot;&gt;install.packages&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;c&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;Rcpp&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;RcppEigen&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;,&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;StanHeaders&quot;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;span aria-hidden=&quot;true&quot; class=&quot;line-numbers-rows&quot; style=&quot;white-space: normal; width: auto; left: 0;&quot;&gt;&lt;span&gt;&lt;/span&gt;&lt;/span&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;The headers must be included during compilation, to this end we set &lt;code class=&quot;language-text&quot;&gt;PKG_CXXFLAGS&lt;/code&gt; system variable.&lt;/p&gt;
 &lt;div class=&quot;gatsby-highlight&quot; data-language=&quot;r&quot;&gt;&lt;pre class=&quot;language-r&quot;&gt;&lt;code class=&quot;language-r&quot;&gt;Sys.setenv&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&quot;PKG_CXXFLAGS&quot;&lt;/span&gt;&lt;span class=&quot;token operator&quot;&gt;=&lt;/span&gt;&lt;span class=&quot;token string&quot;&gt;&apos;-I&quot;YOUR_LIB_PATH/Rcpp/include&quot; -I&quot;YOUR_LIB_PATH/RcppEigen/include&quot; -I&quot;YOUR_LIB_PATH/StanHeaders/include&quot;&apos;&lt;/span&gt;&lt;span class=&quot;token punctuation&quot;&gt;)&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/div&gt;
 &lt;p&gt;Where &lt;code class=&quot;language-text&quot;&gt;YOUR_LIB_PATH&lt;/code&gt; should be replaced with the directory where R packages are installed on your system, which can be found by calling &lt;code class=&quot;language-text&quot;&gt;.libPaths()&lt;/code&gt;.
@@ -1108,7 +1107,7 @@ Logistic regression is a more sophisticated method. There we model the probabili
 &lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/d52b76e546b3958a30c4da78ee92bd94/bd193/logistic_function-1.png&quot;
+    href=&quot;/static/d52b76e546b3958a30c4da78ee92bd94/ef36f/logistic_function-1.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -1127,10 +1126,10 @@ Logistic regression is a more sophisticated method. There we model the probabili
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
         alt=&quot;center&quot;
         title=&quot;&quot;
-        src=&quot;/static/d52b76e546b3958a30c4da78ee92bd94/bd193/logistic_function-1.png&quot;
-        srcset=&quot;/static/d52b76e546b3958a30c4da78ee92bd94/4b199/logistic_function-1.png 148w,
-/static/d52b76e546b3958a30c4da78ee92bd94/d3891/logistic_function-1.png 295w,
-/static/d52b76e546b3958a30c4da78ee92bd94/bd193/logistic_function-1.png 432w&quot;
+        src=&quot;/static/d52b76e546b3958a30c4da78ee92bd94/ef36f/logistic_function-1.png&quot;
+        srcset=&quot;/static/d52b76e546b3958a30c4da78ee92bd94/1c61b/logistic_function-1.png 148w,
+/static/d52b76e546b3958a30c4da78ee92bd94/ffd40/logistic_function-1.png 295w,
+/static/d52b76e546b3958a30c4da78ee92bd94/ef36f/logistic_function-1.png 432w&quot;
         sizes=&quot;(max-width: 432px) 100vw, 432px&quot;
       /&gt;
     &lt;/span&gt;
@@ -1147,7 +1146,7 @@ For a binomial GLM prior weights are used to give the number of trials when the 
 &lt;/blockquote&gt;
 &lt;p&gt;The method does produce the correct estimates even if we provide non-integer weights, we will get a warning though and one should be cautious of scaling the weights correctly if you want confidence intervals(more below). To get rid of the of the warning use &lt;code class=&quot;language-text&quot;&gt;family=quasibinomial(&amp;#39;logit&amp;#39;)&lt;/code&gt; instead of &lt;code class=&quot;language-text&quot;&gt;family=binomial(&amp;#39;logit&amp;#39;)&lt;/code&gt;.&lt;/p&gt;
 &lt;p&gt;We look at a dataset from the &lt;em&gt;National Healthh and Nutrition Examination Survey&lt;/em&gt;.
-The data can be found &lt;a href=&quot;http://www.umass.edu/statdata/statdata/data/&quot;&gt;here&lt;/a&gt;.
+The data can be found &lt;a href=&quot;/assets/locally-weighted-logistic-regression/nhanes.dat&quot;&gt;here&lt;/a&gt;.
 We will try to estimate risk of being &lt;code class=&quot;language-text&quot;&gt;obese&lt;/code&gt; using &lt;code class=&quot;language-text&quot;&gt;seated&lt;/code&gt; the number of minutes of seated activity pr. week.
 Notice that &lt;code class=&quot;language-text&quot;&gt;seated&lt;/code&gt; is reported rather than measured thus taking only values that are multiples of 30 in the higher range.
 This is less than ideal, but I went with this dataset anyway because it provides a good example of a non-monotone relation between predictor and response.&lt;/p&gt;
@@ -1181,7 +1180,7 @@ ggplot&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;plot_df&lt;s
 &lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/79b2744184a3ae5de4e4828bc2239a6e/95632/simpleLogisticPlot-1.png&quot;
+    href=&quot;/static/79b2744184a3ae5de4e4828bc2239a6e/1e99f/simpleLogisticPlot-1.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -1200,10 +1199,10 @@ ggplot&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;plot_df&lt;s
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
         alt=&quot;center&quot;
         title=&quot;&quot;
-        src=&quot;/static/79b2744184a3ae5de4e4828bc2239a6e/95632/simpleLogisticPlot-1.png&quot;
-        srcset=&quot;/static/79b2744184a3ae5de4e4828bc2239a6e/9d04d/simpleLogisticPlot-1.png 148w,
-/static/79b2744184a3ae5de4e4828bc2239a6e/f1dcb/simpleLogisticPlot-1.png 295w,
-/static/79b2744184a3ae5de4e4828bc2239a6e/95632/simpleLogisticPlot-1.png 576w&quot;
+        src=&quot;/static/79b2744184a3ae5de4e4828bc2239a6e/1e99f/simpleLogisticPlot-1.png&quot;
+        srcset=&quot;/static/79b2744184a3ae5de4e4828bc2239a6e/a0d11/simpleLogisticPlot-1.png 148w,
+/static/79b2744184a3ae5de4e4828bc2239a6e/1646a/simpleLogisticPlot-1.png 295w,
+/static/79b2744184a3ae5de4e4828bc2239a6e/1e99f/simpleLogisticPlot-1.png 576w&quot;
         sizes=&quot;(max-width: 576px) 100vw, 576px&quot;
       /&gt;
     &lt;/span&gt;
@@ -1218,7 +1217,7 @@ ggplot&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;plot_df&lt;s
 &lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/e7cba99660cf9a8a4a30be050bfb8906/bd193/epanechnikov-1.png&quot;
+    href=&quot;/static/e7cba99660cf9a8a4a30be050bfb8906/ef36f/epanechnikov-1.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -1237,10 +1236,10 @@ ggplot&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;plot_df&lt;s
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
         alt=&quot;center&quot;
         title=&quot;&quot;
-        src=&quot;/static/e7cba99660cf9a8a4a30be050bfb8906/bd193/epanechnikov-1.png&quot;
-        srcset=&quot;/static/e7cba99660cf9a8a4a30be050bfb8906/4b199/epanechnikov-1.png 148w,
-/static/e7cba99660cf9a8a4a30be050bfb8906/d3891/epanechnikov-1.png 295w,
-/static/e7cba99660cf9a8a4a30be050bfb8906/bd193/epanechnikov-1.png 432w&quot;
+        src=&quot;/static/e7cba99660cf9a8a4a30be050bfb8906/ef36f/epanechnikov-1.png&quot;
+        srcset=&quot;/static/e7cba99660cf9a8a4a30be050bfb8906/1c61b/epanechnikov-1.png 148w,
+/static/e7cba99660cf9a8a4a30be050bfb8906/ffd40/epanechnikov-1.png 295w,
+/static/e7cba99660cf9a8a4a30be050bfb8906/ef36f/epanechnikov-1.png 432w&quot;
         sizes=&quot;(max-width: 432px) 100vw, 432px&quot;
       /&gt;
     &lt;/span&gt;
@@ -1284,7 +1283,7 @@ df &lt;span class=&quot;token operator&quot;&gt;&amp;lt;-&lt;/span&gt; data.fram
 &lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/29b45d4d69f0bea69b81acf6dca7a801/95632/localLogisticPlot-1.png&quot;
+    href=&quot;/static/29b45d4d69f0bea69b81acf6dca7a801/1e99f/localLogisticPlot-1.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -1303,10 +1302,10 @@ df &lt;span class=&quot;token operator&quot;&gt;&amp;lt;-&lt;/span&gt; data.fram
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
         alt=&quot;center&quot;
         title=&quot;&quot;
-        src=&quot;/static/29b45d4d69f0bea69b81acf6dca7a801/95632/localLogisticPlot-1.png&quot;
-        srcset=&quot;/static/29b45d4d69f0bea69b81acf6dca7a801/9d04d/localLogisticPlot-1.png 148w,
-/static/29b45d4d69f0bea69b81acf6dca7a801/f1dcb/localLogisticPlot-1.png 295w,
-/static/29b45d4d69f0bea69b81acf6dca7a801/95632/localLogisticPlot-1.png 576w&quot;
+        src=&quot;/static/29b45d4d69f0bea69b81acf6dca7a801/1e99f/localLogisticPlot-1.png&quot;
+        srcset=&quot;/static/29b45d4d69f0bea69b81acf6dca7a801/a0d11/localLogisticPlot-1.png 148w,
+/static/29b45d4d69f0bea69b81acf6dca7a801/1646a/localLogisticPlot-1.png 295w,
+/static/29b45d4d69f0bea69b81acf6dca7a801/1e99f/localLogisticPlot-1.png 576w&quot;
         sizes=&quot;(max-width: 576px) 100vw, 576px&quot;
       /&gt;
     &lt;/span&gt;
@@ -1348,7 +1347,7 @@ ggplot&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;plot_df&lt;s
 &lt;p&gt;
   &lt;a
     class=&quot;gatsby-resp-image-link&quot;
-    href=&quot;/static/8873e9ec04cb6a8c98ec8d82db984d02/95632/CIsPlot-1.png&quot;
+    href=&quot;/static/8873e9ec04cb6a8c98ec8d82db984d02/1e99f/CIsPlot-1.png&quot;
     style=&quot;display: block&quot;
     target=&quot;_blank&quot;
     rel=&quot;noopener&quot;
@@ -1367,10 +1366,10 @@ ggplot&lt;span class=&quot;token punctuation&quot;&gt;(&lt;/span&gt;plot_df&lt;s
         style=&quot;width: 100%; height: 100%; margin: 0; vertical-align: middle; position: absolute; top: 0; left: 0; box-shadow: inset 0px 0px 0px 400px white;&quot;
         alt=&quot;center&quot;
         title=&quot;&quot;
-        src=&quot;/static/8873e9ec04cb6a8c98ec8d82db984d02/95632/CIsPlot-1.png&quot;
-        srcset=&quot;/static/8873e9ec04cb6a8c98ec8d82db984d02/9d04d/CIsPlot-1.png 148w,
-/static/8873e9ec04cb6a8c98ec8d82db984d02/f1dcb/CIsPlot-1.png 295w,
-/static/8873e9ec04cb6a8c98ec8d82db984d02/95632/CIsPlot-1.png 576w&quot;
+        src=&quot;/static/8873e9ec04cb6a8c98ec8d82db984d02/1e99f/CIsPlot-1.png&quot;
+        srcset=&quot;/static/8873e9ec04cb6a8c98ec8d82db984d02/a0d11/CIsPlot-1.png 148w,
+/static/8873e9ec04cb6a8c98ec8d82db984d02/1646a/CIsPlot-1.png 295w,
+/static/8873e9ec04cb6a8c98ec8d82db984d02/1e99f/CIsPlot-1.png 576w&quot;
         sizes=&quot;(max-width: 576px) 100vw, 576px&quot;
       /&gt;
     &lt;/span&gt;

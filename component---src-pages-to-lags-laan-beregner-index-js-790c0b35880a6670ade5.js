@@ -1,2 +1,0 @@
-(window.webpackJsonp=window.webpackJsonp||[]).push([[7],{141:function(n,t,e){"use strict";e.r(t);var o=e(7),r=e.n(o),u=e(0),i=e.n(u),c=(e(152),e(153),e(154),function(n){function t(){return n.apply(this,arguments)||this}return r()(t,n),t.prototype.render=function(){return i.a.createElement("h1",null,"Laan Beregner")},t}(i.a.Component));t.default=c},152:function(n,t,e){},153:function(n,t,e){},154:function(n,t,e){}}]);
-//# sourceMappingURL=component---src-pages-to-lags-laan-beregner-index-js-790c0b35880a6670ade5.js.map
