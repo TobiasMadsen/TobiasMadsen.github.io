@@ -33,7 +33,7 @@ For a binomial GLM prior weights are used to give the number of trials when the 
 The method does produce the correct estimates even if we provide non-integer weights, we will get a warning though and one should be cautious of scaling the weights correctly if you want confidence intervals(more below). To get rid of the of the warning use `family=quasibinomial('logit')` instead of `family=binomial('logit')`.
 
 We look at a dataset from the _National Healthh and Nutrition Examination Survey_.
-The data can be found [here](http://www.umass.edu/statdata/statdata/data/).
+The data can be found [here](/assets/locally-weighted-logistic-regression/nhanes.dat).
 We will try to estimate risk of being `obese` using `seated` the number of minutes of seated activity pr. week.
 Notice that `seated` is reported rather than measured thus taking only values that are multiples of 30 in the higher range.
 This is less than ideal, but I went with this dataset anyway because it provides a good example of a non-monotone relation between predictor and response.
