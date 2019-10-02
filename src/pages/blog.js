@@ -3,7 +3,7 @@ import get from 'lodash/get'
 import Helmet from 'react-helmet'
 import injectSheet from 'react-jss'
 import SimpleLayout from "../components/SimpleLayout/SimpleLayout"
-import { Link } from 'gatsby'
+import { Link, graphql } from 'gatsby'
 
 import 'typeface-playfair-display'
 import 'typeface-montserrat'

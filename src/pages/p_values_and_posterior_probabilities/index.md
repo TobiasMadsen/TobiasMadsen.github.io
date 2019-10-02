@@ -38,7 +38,7 @@ We find the $$K$$ that maximizes the posterior probability of the alternative fo
  <thead>
   <tr>
    <th style="text-align:left;"> P-value</th>
-   <th style="text-align:right;"> Posterior of H0 </th>
+   <th style="text-align:right;"> Posterior of H<sub>0</sub></th>
   </tr>
  </thead>
 <tbody>
